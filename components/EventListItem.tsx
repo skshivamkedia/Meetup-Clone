@@ -1,15 +1,16 @@
 import { View,Text,Image } from 'react-native';
 import Feather from '@expo/vector-icons/Feather';
 import Entypo from '@expo/vector-icons/Entypo';
-
+import dayjs from 'dayjs';
 
 function EvenLisItem({event}){
     return (
-        <View className='p-3 gap-3'>
+        <View className='p-3 gap-3 border-b-2 border-gray-100 pb-3'>
         <View className='flex-row'>
           <View className='flex-1 gap-2'>
             <Text className='text-lg font-semibold uppercase text-amber-700'>
-              {event.datetime}</Text>
+              {dayjs(event.datetime).format('ddd, D MMM')}  
+              {dayjs(event.datetime).format('h:mm A')}</Text>
             {/* <Text style={{fontSize : 30, fontWeight : 'bold'}}>This is the title</Text> */}
             <Text className="text-xl font-bold" numberOfLines={2}>
               {event.title}</Text>
